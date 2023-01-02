@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DLM | Login</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
+        <link href="/static/log.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="container">               
+                <h1>Log In</h1>
+                <form class="form" method="post">
+                {% csrf_token %}
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="password" placeholder="Password" name="password">
+                    <button type="submit" id="login-button">Login</button>  
+                    <br><br> 
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}     
+                    <br>
+                    <p>Don't You have an Account? <a href="/register">Register</a></p>                  
+                </form>                                  
+            </div> 
+
+            <ul class="bg-bubbles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul> 
+
+        </div>
+
+        <script>
+            $("#login-button").click(function (event) {
+                event.preventDefault();
+                $('form').fadeOut(500);
+                $('.wrapper').addClass('form-success');
+            });
+        </script>
+    </body>
+</html>
